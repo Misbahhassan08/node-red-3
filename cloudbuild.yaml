@@ -1,0 +1,10 @@
+steps:
+# build image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/cobalt-catalyst-263401/node-red-1:$COMMIT_SHA', '.'] 
+# push image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/cobalt-catalyst-263401/node-red-1:$COMMIT_SHA']
+# Deploy image
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run' ,'deploy',  'mh-node-red', '--region=us-central1',  '--platform=managed', '--image=gcr.io/cobalt-catalyst-263401/node-red-1:$COMMIT_SHA']

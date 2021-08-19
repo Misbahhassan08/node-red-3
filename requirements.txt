@@ -1,0 +1,6 @@
+paho-mqtt
+redis
+pyserial
+dynamixel-sdk
+nano
+
