@@ -44,7 +44,7 @@ USER 1000
 
 WORKDIR /.node-red
 
-RUN mkdir / .node-red/data
+RUN mkdir /.node-red/data
 
 ENV PORT 1880
 ENV NODE_ENV=production
